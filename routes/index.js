@@ -3,30 +3,38 @@ var router = express.Router();
 var passport = require('passport');
 var Recipe = require('../models/recipe');
 
-/* GET home page. */
+// GET Home Page
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Recipes' });
+    res.render('index', { title: 'Recipes', message: req.flash() });
 });
 
-// GET /signup
+// GET Current User
+router.get('/currentUser', function(req, res, next) {
+    console.log('current user: ' + currentUser);
+    User.populate(currentUser, { path: 'collections', model: 'Collection' }, function(err, user) {
+        res.json(user);
+    });
+})
+
+
+// GET Signup
 router.get('/signup', function(req, res, next) {
     res.render('signup.html', { loggedIn: currentUser, message: req.flash() });
 });
 
 
-// POST /signup
+// POST Signup
 router.post('/signup', function(req, res, next) {
     var signUpStrategy = passport.authenticate('local-signup', {
-      successRedirect: '/',
-      failureRedirect: '/signup',
-      failureFlash: true
+        successRedirect: '/',
+        failureRedirect: '/signup',
+        failureFlash: true
     });
     return signUpStrategy(req, res, next);
 });
 
 // GET /login
 router.get('/login', function(req, res, next) {
-
     res.render('login.html', { loggedIn: currentUser, message: req.flash() });
 });
 

@@ -41,6 +41,12 @@ angular.module('recipesApp')
                 controller: "userRecipesCtrl",
                 controllerAs: "ctrl"
             });
+            // .state('newrecipe', {
+            //     url: "/recipes/new",
+            //     templateUrl: "views/newrecipe.html",
+            //     controller: "userRecipesCtrl",
+            //     controllerAs: "ctrl"
+            // });
     });
 
 // RECIPES CONTROLLER
@@ -78,15 +84,7 @@ angular.module('recipesApp')
         });
     });
 
-// // USER RECIPES CONTROLLER
-// angular.module('recipesApp')
-//     .controller('userRecipesCtrl', function($http, $stateParams) {
-//         console.log('userRecipesCtrl is alive!');
 
-//         var ctrl = this;
-//         ctrl.recipe = {};
 
-//         $http.get('/users/' + $stateParams.userId + '/recipes' + ).then(function(response) {
-//             ctrl.recipe = response.data;
-//         });
-//     });
+
+
