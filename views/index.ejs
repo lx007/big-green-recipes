@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script type="text/javascript" src="angular/angular.min.js" defer></script>
     <script type="text/javascript" src="angular-ui-router/release/angular-ui-router.min.js" defer></script>
     <script type="text/javascript" src="javascripts/client.js" defer></script>
-  </head>
-  <body ng-app='recipesApp' ng-controller='recipesCtrl as ctrl'>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.green-light_green.min.css" />
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script type="text/javascript" src="angular-animate/angular-animate.js"></script>
+    <base href="/">
 
-    <ul>
-    <li ng-repeat="recipe in ctrl.recipes">{{recipe.title}}</li>
-    </ul>
+  </head>
+  <body ng-app="recipesApp">
+
+    <div>
+      <a ui-sref="home">Home</a>
+      <a ui-sref="recipes">Recipes</a>
+    </div>
+
+
+
+    <div ui-view=""></div>
+
+
+
   </body>
 </html>

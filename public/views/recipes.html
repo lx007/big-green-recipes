@@ -1,0 +1,8 @@
+<h1>Recipes</h1>
+
+<ul>
+  <li ng-repeat="recipe in ctrl.recipes">
+    <a ng-click="ctrl.goShowPage(recipe)">{{ recipe._id }} : {{ recipe.title }} - {{ recipe.description }}</a>
+  </li>
+</ul>
+
