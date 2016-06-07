@@ -1,4 +1,8 @@
-<!-- user-recipes.html -->
+<h1>User Recipes</h1>
 
-<h1>Recipes Show Page</h1>
-<p ng-repeat=''>Title: {{ ctrl.recipe.title }}</p>
+<ul>
+  <li ng-repeat="recipe in ctrl.recipes">
+    <a ng-click="ctrl.goShowPage(recipe)">{{ recipe._id }} : {{ recipe.title }} - {{ recipe.description }}</a>
+  </li>
+</ul>
+

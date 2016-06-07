@@ -33,13 +33,36 @@ router.get('/', function(req, res, next) {
 });
 
 // ================================= //
-// EDIT USER
+// USER SHOW - GET
+// USER SHOW - PUT
 // ================================= //
-router.get('/user')
+router.route('/:id')
+  .get(function(req, res, next) {
+    console.log(currentUser);
+    User.findById(req.params.id)
+    .exec(function(err, user) {
+        console.log(newUser);
+        res.json(newUser);
+      })
+    });
 
+  .put(authenticate, function(req, res, next) {
+    if(authorized(req.params.id)) {
 
+    }
+  });
 
+//---------------------------------------//
+//  User Edit - GET                      //
+//---------------------------------------//
+router.route('/id/edit')
+  .get(authenticate, function(req, res, next) {
+    if(authorized(req.params.id)) {
+      res.render('user/edituser.ejs', { currentUser: currentUser });
+    }else {
+      res.redirect('/users/'+ currentUser._id);
+    }
+  });
 
 module.exports = router;
-
 

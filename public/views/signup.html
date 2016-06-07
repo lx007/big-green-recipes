@@ -1,18 +1,17 @@
 <main class="page-wrap">
-      <div>
-        <h2></h2>
-        <form method="post" action="/signup">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input class="form-control" type="text" name="email" id="email">
-          </div>
-​
-          <div class="form-group">
-            <label for="email">Password</label>
-            <input class="form-control" type="password" name="password" id="password">
-          </div>
-​
-          <input class="btn btn-default" type="submit">
-        </form>
-      </div>
-    </main>
+    <hgroup>
+    </hgroup>
+    <form method="post" action="/login">
+        <div class="group">
+            <input type="text" name="email" id="email"><span class="highlight"></span><span class="bar"></span>
+            <label>Email</label>
+        </div>
+        <div class="group">
+            <input type="password" name="password" id="password"><span class="highlight"></span><span class="bar"></span>
+            <label>Password</label>
+        </div>
+        <button ng-click="mainCtrl.submitSignup()" type="button" class="button buttonBlue">Login
+            <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+        </button>
+    </form>
+</main>
