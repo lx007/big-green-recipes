@@ -46,11 +46,11 @@ router.route('/:id')
       })
     });
 
-  .put(authenticate, function(req, res, next) {
-    if(authorized(req.params.id)) {
+  // .put(authenticate, function(req, res, next) {
+  //   if(authorized(req.params.id)) {
 
-    }
-  });
+  //   }
+  // });
 
 //---------------------------------------//
 //  User Edit - GET                      //
