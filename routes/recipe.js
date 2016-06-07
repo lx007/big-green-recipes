@@ -3,26 +3,6 @@ var router = express.Router();
 var User = require('../models/user');
 var Recipe = require('../models/recipe');
 
-// function seedRecipes() {
-//   var recipes = [
-//     { title: 'Lemon Chicken',     description: 'Chicken dish', instructions: 'Cook it', cooktime: 10, preptime: 20 },
-//     { title: 'The Perfect Steak', description: 'Steak dish',   instructions: 'Cook it', cooktime: 10, preptime: 20 }
-//   ];
-
-//   Recipe.find({}).remove()
-//   .then(function() {
-//     return Recipe.create(recipes);
-//   })
-//   .then(function() {
-//     return Recipe.find({});
-//   })
-//   .then(function(found) {
-//     console.log('We saved and retrieved', found.length, 'recipes.');
-//   });
-// }
-
-// seedRecipes();
-
 // INDEX Route
 router.get('/', function(req, res, next) {
   Recipe.find({})
@@ -43,6 +23,28 @@ router.get('/:id', function(req, res, next) {
   .catch(function(err) {
     return next(err);
   });
+});
+
+// NEW/CREATE Route
+router.post('/new', function(req, res, next) {
+  User.findById(req.body.user._id)
+  .then(function(user) {
+    if(user) {
+      var newRecipe = {
+        name: ''
+      };
+      Recipe.create(newRecipe, function(err, recipe) {
+        user.recipes.push(recipe);
+        user.save(function(err, saved) {
+          return res.json({recipe: recipe, user: saved});
+        });
+      });
+    } else {
+      console.log(user);
+      return res.json({result: 'Failed'});
+    }
+  });
+
 });
 
 module.exports = router;
