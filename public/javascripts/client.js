@@ -1,4 +1,6 @@
-angular.module('recipesApp', ['ui.router']);
+angular.module('recipesApp', [
+               'ui.router',
+               'ui.bootstrap']);
 
 angular.module('recipesApp')
     .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
