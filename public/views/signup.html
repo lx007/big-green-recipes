@@ -1,8 +1,8 @@
 <main class="page-wrap">
     <hgroup>
     </hgroup>
-    <form method="post" action="/signup">
-                <div class="group">
+    <form ng-submit="ctrl.submitSignup()">
+        <div class="group">
             <input type="text" name="email" id="email" ng-model="ctrl.data.email"><span class="highlight"></span><span class="bar"></span>
             <label>Email</label>
         </div>
@@ -10,8 +10,6 @@
             <input type="password" name="password" id="password" ng-model="ctrl.data.password"><span class="highlight"></span><span class="bar"></span>
             <label>Password</label>
         </div>
-        <button ng-click="mainCtrl.submitSignup()" type="button" class="button buttonBlue">Sign Up
-            <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-        </button>
+        <input type="submit" class="button buttonBlue" value="Sign Up">
     </form>
 </main>

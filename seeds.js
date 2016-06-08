@@ -26,7 +26,7 @@ User.remove({})
   console.log('Creating new users');
   var user1  = new User({
     local: {
-      email: 'example@gmail.com',
+      email: 'will@gmail.com',
       password: 'Foobar123'
     }
 

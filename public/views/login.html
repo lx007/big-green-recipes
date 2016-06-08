@@ -1,7 +1,7 @@
 <main class="page-wrap">
     <hgroup>
     </hgroup>
-    <form method="post" action="/login">
+    <form ng-submit="ctrl.submitLogin()">
         <div class="group">
             <input type="text" name="email" id="email" ng-model="ctrl.data.email"><span class="highlight"></span><span class="bar"></span>
             <label>Email</label>
@@ -10,8 +10,24 @@
             <input type="password" name="password" id="password" ng-model="ctrl.data.password"><span class="highlight"></span><span class="bar"></span>
             <label>Password</label>
         </div>
-        <button ng-click="mainCtrl.submitLogin()" type="button" class="button buttonBlue">Login
-            <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-        </button>
+        <input type="submit" class="button buttonBlue" value="Login">
     </form>
 </main>
+
+
+<!-- <div class='login-wrap'>
+    <h2 class='error-message' ng-show='ctrl.errorMessage'>{{mctrl.errorMessage}}</h2>
+​
+    <form class='login-form' method="post" action="/login" ng-submit='$event.preventDefault()'>
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" ng-model='ctrl.email'>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" ng-model='ctrl.password'>
+        </div>
+​
+        <a ng-click="ctrl.submitLogin()" >Submit</a>
+    </form>
+</div> -->

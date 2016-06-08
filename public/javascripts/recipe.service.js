@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('RecipesApp')
+    .module('recipesApp')
     .service('RecipeService', RecipeService);
 
   /** @ngInject */
-  function ItemService() {
+  function RecipeService() {
 
     var that = this;
 

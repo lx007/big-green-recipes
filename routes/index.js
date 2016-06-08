@@ -11,11 +11,8 @@ router.get('/', function(req, res, next) {
 // GET Current User
 router.get('/currentUser', function(req, res, next) {
     console.log('current user: ' + currentUser);
-    User.populate(currentUser, { path: 'collections', model: 'Collection' }, function(err, user) {
-        res.json(user);
-    });
-})
-
+    res.json(currentUser);
+});
 
 // GET Signup
 router.get('/signup', function(req, res, next) {
@@ -24,13 +21,9 @@ router.get('/signup', function(req, res, next) {
 
 
 // POST Signup
-router.post('/signup', function(req, res, next) {
-    var signUpStrategy = passport.authenticate('local-signup', {
-        successRedirect: '/index',
-        failureRedirect: '/signup',
-        failureFlash: true
-    });
-    return signUpStrategy(req, res, next);
+router.route('/signup')
+.post(passport.authenticate('local-signup'), function(req, res) {
+    res.json(req.user);
 });
 
 // GET /login
@@ -40,14 +33,20 @@ router.get('/login', function(req, res, next) {
 
 
 // POST /login
-router.post('/login', function(req, res, next) {
-    var loginProperty = passport.authenticate('local-login', {
-        successRedirect: '/index',
-        failureRedirect: '/login',
-        failureFlash: true
-    });
-    return loginProperty(req, res, next);
+router.route('/login')
+.post(passport.authenticate('local-login'), function(req, res) {
+    console.log(req.user + 'line 38');
+    res.json(req.user);
 });
+
+// // NEW POST ROUTE
+// // GET /login
+// router.route('/login')
+//  .post(function(req, res, next) {
+//     res.json({test: 'Worked'});
+//     console.log(req.body)
+// });
+
 
 // GET /logout
 router.get('/logout', function(req, res, next) {

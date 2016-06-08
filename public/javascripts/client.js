@@ -86,12 +86,17 @@ angular.module('recipesApp')
 
 // MAIN CONTROLLER
 angular.module('recipesApp')
-    .controller('mainCtrl', function($stateParams, $state, $http, RecipeService) {
+    .controller('mainCtrl', function($stateParams, $state, $http) {
         var vm = this;
 
         vm.user;
         vm.email;
         vm.password;
+
+        vm.data = {
+            email: '',
+            password: ''
+        };
 
         vm.checkCurrentUser = function() {
             $http.get('/currentUser')
@@ -106,15 +111,19 @@ angular.module('recipesApp')
         vm.checkCurrentUser();
 
         vm.submitLogin = function() {
+            console.log('submitLogin');
+            console.log(vm.data);
             console.log(vm.email);
             console.log(vm.password);
-            $http.post('/login', { email: vm.email, password: vm.password })
+
+            $http.post('/login', vm.data)
                 .then(function(response) {
                     if (response.data) {
                         console.log('You have logged in');
                         vm.user = response.data;
                         vm.errorMessage = undefined;
-                        $state.go('userCollections', { userId: vm.user._id });
+                        $state.go('recipes', { userId: vm.user._id });
+                        console.log('line 122 after /login')
                     } else {
                         console.log('fail at line 119');
                         vm.errorMessage = 'Incorrect Email or Password';
@@ -123,15 +132,16 @@ angular.module('recipesApp')
         }
 
         vm.submitSignup = function() {
-            console.log(vm.email);
-            console.log(vm.password);
-            $http.post('/signup', { email: vm.email, password: vm.password })
+            console.log(vm.data + 'line 131');
+            console.log(vm.data.email + 'line 131');
+            console.log(vm.data.password + 'line 131');
+            $http.post('/signup', vm.data)
                 .then(function(response) {
                     if (response.data.result === 'Success') {
                         console.log('Success!');
                         console.log(response.data.user);
                         vm.user = response.data.user;
-                        $state.go('userCollections', { userId: vm.user._id });
+                        $state.go('recipes', { userId: vm.user._id });
                     } else {
                         console.log('Failure!');
                     }
@@ -152,12 +162,12 @@ angular.module('recipesApp')
                 .then(function(results) {
                     console.log('successfully created new recipe');
                     vm.user = results.data.user;
-                    $state.go('collection', { recipeId: results.data.user-recipes._id })
+                    $state.go('recipe', { recipeId: results.data.user-recipes._id })
                 });
         }
 
-        vm.isCollectionPage = function() {
-            return $state.current.name === 'collection';
+        vm.isRecipePage = function() {
+            return $state.current.name === 'recipe';
         }
 
         vm.isHomePage = function() {
