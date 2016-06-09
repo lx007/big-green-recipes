@@ -292,11 +292,3 @@ footer a:focus {
     outline: none;
 }
 
-
-
-
-
-.carousel-inner.item-img {
-    max-height: 500px
-    width: 100% ;
-}
