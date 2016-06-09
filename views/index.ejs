@@ -33,6 +33,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li><a ui-sref="recipes">Recipes</a></li>
+        <li><a ui-sref="recipes-new">New Recipe</a></li>
 
         <% if (currentUser) { %>
           <li><a href="/users/<%= currentUser._id %>"><%= currentUser.local.email %></a></li>

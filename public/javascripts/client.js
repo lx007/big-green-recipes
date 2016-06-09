@@ -42,13 +42,13 @@ angular.module('recipesApp')
                 templateUrl: "views/user-recipes.html",
                 controller: "userRecipesCtrl",
                 controllerAs: "ctrl"
-            });
-        // .state('newrecipe', {
-        //     url: "/recipes/new",
-        //     templateUrl: "views/newrecipe.html",
-        //     controller: "userRecipesCtrl",
-        //     controllerAs: "ctrl"
-        // });
+            })
+        .state('recipes-new', {
+            url: "/views/recipes-new.html",
+            templateUrl: "views/recipes-new.html",
+            controller: "mainCtrl",
+            controllerAs: "ctrl"
+        });
     });
 
 // RECIPES CONTROLLER

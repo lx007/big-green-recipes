@@ -1,0 +1,16 @@
+<main class="page-wrap">
+    <hgroup>
+    </hgroup>
+    <form ng-submit="ctrl.createNewRecipe()">
+        <div class="group">
+            <input type="text" name="title" id="title" ng-model="ctrl.data.title"><span class="highlight" placeholder="Lemon Chicken"></span><span class="bar"></span>
+            <label>Title</label>
+        </div>
+        <div class="group">
+            <input type="text" name="type" id="type" ng-model="ctrl.data.type"><span class="highlight"></span><span class="bar"></span>
+            <label>Type</label>
+        </div>
+
+        <input type="submit" class="button buttonBlue" value="Create Recipe">
+    </form>
+</main>

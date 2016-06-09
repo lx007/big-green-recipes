@@ -1,13 +1,14 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var ObjectId = mongoose.Schema.Types.ObjectId;
+var Recipe = require('./recipe');
 
 var User = new mongoose.Schema({
   local: {
     email: String,
     password: String
   },
-  recipes: [{type: mongoose.Schema.ObjectId, ref: 'Recipe'}]
+  recipes: [Recipe.schema]
 });
 
 User.methods.encrypt = function(password) {

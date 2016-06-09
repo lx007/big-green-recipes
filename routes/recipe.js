@@ -31,7 +31,7 @@ router.post('/new', function(req, res, next) {
   .then(function(user) {
     if(user) {
       var newRecipe = {
-        name: ''
+        title: ''
       };
       Recipe.create(newRecipe, function(err, recipe) {
         user.recipes.push(recipe);
