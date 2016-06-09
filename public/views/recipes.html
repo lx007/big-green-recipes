@@ -1,9 +1,4 @@
-<h1>Recipes</h1>
-<!-- <ul>
-    <li ng-repeat="recipe in ctrl.recipes">
-        <a ng-click="ctrl.goShowPage(recipe)">{{ recipe._id }} : {{ recipe.title }} - {{ recipe.description }}</a>
-    </li>
-</ul> -->
+
 <section class="container-fluid main">
     <div class="row">
         <article class="recipes">
@@ -14,15 +9,15 @@
                         <a ng-click="ctrl.goShowPage(recipe)" class="list-group-item">
                             <h3>{{ recipe.title }}</h3>
                             <article class="row">
-                                <div>
-                                    <img class="recipes" align="middle" width=350px src="/images/{{recipe.photo}}" />
+                                <div class="recipe-image" id="recipe-image">
+                                    <img width=350px src="/images/{{recipe.photo}}" />
                                 </div>
-                                <div>
+<!--                                 <div>
                                     <dl class="dl-horizontal">
                                         <dt>Description:</dt>
                                         <dd>{{ recipe.description }}</dd>
                                     </dl>
-                                </div>
+                                </div> -->
                             </article>
                         </a>
                     </div>

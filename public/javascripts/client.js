@@ -1,6 +1,7 @@
 angular.module('recipesApp', [
-               'ui.router',
-               'ui.bootstrap']);
+    'ui.router',
+    'ui.bootstrap'
+]);
 
 angular.module('recipesApp')
     .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -43,12 +44,12 @@ angular.module('recipesApp')
                 controller: "userRecipesCtrl",
                 controllerAs: "ctrl"
             })
-        .state('recipes-new', {
-            url: "/views/recipes-new.html",
-            templateUrl: "views/recipes-new.html",
-            controller: "mainCtrl",
-            controllerAs: "ctrl"
-        });
+            .state('recipes-new', {
+                url: "/views/recipes-new.html",
+                templateUrl: "views/recipes-new.html",
+                controller: "mainCtrl",
+                controllerAs: "ctrl"
+            });
     });
 
 // RECIPES CONTROLLER
@@ -58,6 +59,7 @@ angular.module('recipesApp')
 
         var ctrl = this;
         ctrl.recipes = [];
+        ctrl.new
 
         ctrl.getRecipes = function() {
             $http.get('/api/recipes').then(function(response) {
@@ -90,6 +92,11 @@ angular.module('recipesApp')
 angular.module('recipesApp')
     .controller('mainCtrl', function($stateParams, $state, $http) {
         var vm = this;
+
+        ctrl.newRecipe = {
+            title: ''
+        };
+
 
         vm.user;
         vm.email;
@@ -158,15 +165,32 @@ angular.module('recipesApp')
             $state.go('home');
         }
 
-        vm.createNewRecipe = function() {
-            console.log('submitted');
-            $http.post('/recipes/new', { user: vm.user, email: vm.email, password: vm.password })
-                .then(function(results) {
-                    console.log('successfully created new recipe');
-                    vm.user = results.data.user;
-                    $state.go('recipes', { recipeId: results.data.user-recipes._id })
+
+
+        ctrl.addRecipe = function() {
+            // console.log('adding newNote:', ctrl.newNote);
+            $http
+                .post('/api/recipes/new', ctrl.newRecipe)
+                .then(function(response) {
+                    // console.log('new note added.');
+                    // console.log(response);
+                    ctrl.getRecipes();
+                }, function(err) {
+                    // alert('something went wrong!');
                 });
-        }
+            ctrl.newRecipe = {};
+            console.log("add note is working");
+        };
+
+        // vm.createNewRecipe = function() {
+        //     console.log('submitted');
+        //     $http.post('/recipes/new', { user: vm.user, email: vm.email, password: vm.password })
+        //         .then(function(results) {
+        //             console.log('successfully created new recipe');
+        //             vm.user = results.data.user;
+        //             $state.go('recipes', { recipeId: results.data.user-recipes._id })
+        //         });
+        // }
 
         vm.isRecipePage = function() {
             return $state.current.name === 'recipe';

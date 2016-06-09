@@ -1,7 +1,7 @@
 <main class="page-wrap">
     <hgroup>
     </hgroup>
-    <form ng-submit="ctrl.createNewRecipe()">
+    <form ng-submit="ctrl.addRecipe()">
         <div class="group">
             <input type="text" name="title" id="title" ng-model="ctrl.data.title"><span class="highlight" placeholder="Lemon Chicken"></span><span class="bar"></span>
             <label>Title</label>
@@ -9,6 +9,26 @@
         <div class="group">
             <input type="text" name="type" id="type" ng-model="ctrl.data.type"><span class="highlight"></span><span class="bar"></span>
             <label>Type</label>
+        </div>
+                <div class="group">
+            <input type="text" name="description" id="description" ng-model="ctrl.data.description"><span class="highlight"></span><span class="bar"></span>
+            <label>Description</label>
+        </div>
+                <div class="group">
+            <input type="text" name="instructions" id="instructions" ng-model="ctrl.data.instructions"><span class="highlight"></span><span class="bar"></span>
+            <label>Instructions</label>
+        </div>
+                <div class="group">
+            <input type="number" name="cooktime" id="cooktime" ng-model="ctrl.data.cooktime"><span class="highlight"></span><span class="bar"></span>
+            <label>Cook Time</label>
+        </div>
+                <div class="group">
+            <input type="number" name="preptime" id="preptime" ng-model="ctrl.data.preptime"><span class="highlight"></span><span class="bar"></span>
+            <label>Prep Time</label>
+        </div>
+                <div class="group">
+            <input type="text" name="photo" id="photo" ng-model="ctrl.data.photo"><span class="highlight"></span><span class="bar"></span>
+            <label>Photo</label>
         </div>
 
         <input type="submit" class="button buttonBlue" value="Create Recipe">

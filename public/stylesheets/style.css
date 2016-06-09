@@ -25,11 +25,31 @@ a {
 
 /*========================================================================*/
 
-img.recipes {
-    align-items: center;
+.recipe-image img{
+    margin: 0 auto;
+    width: 100%;
 }
 
+a.list-group-item {
+    padding: 0px 15px;
 
+}
+
+#recipe {
+    padding-bottom: 1.2em;
+    padding-left: 1.2em;
+}
+
+.col-md-4 {
+    margin-bottom: 1.2em;
+}
+
+img.recipeshow {
+    margin: 0 auto;
+    width: 80%;
+    align-items: center;
+    display: block;
+}
 
 
 /*========================================================================*/
