@@ -4,7 +4,10 @@ var Recipe = require("./models/recipe");
 
 var usersArray;
 
-mongoose.connect('mongodb://localhost/recipes');
+mongoose.connect('mongodb://localhost/recipes', function() {
+    mongoose.connection.db.dropDatabase();
+
+});
 
 
 function quit() {
@@ -18,6 +21,8 @@ function handleError(err) {
     quit();
     return err;
 }
+
+
 
 console.log('Removing old users');
 User.remove({})
@@ -52,7 +57,7 @@ User.remove({})
         usersArray = savedUsers;
 
         console.log('Removing old recipes');
-        Recipe.remove({})
+        // Recipe.remove({})
         var recipe1 = new Recipe({
             user: savedUsers[0],
             title: 'Philly Cheeseburger',

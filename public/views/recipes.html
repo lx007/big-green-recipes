@@ -4,29 +4,20 @@
         <a ng-click="ctrl.goShowPage(recipe)">{{ recipe._id }} : {{ recipe.title }} - {{ recipe.description }}</a>
     </li>
 </ul> -->
-
-
 <section class="container-fluid main">
     <div class="row">
-        <article class="items col-9">
-<!--             <section class="search">
-                <form class="navbar-form" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="search" ng-model="ctrl.searchText" placeholder="Search">
-                    </div>
-                    <button type="clear" class="btn btn-warning" ng-click="ctrl.searchText = ''">Reset</button>
-                </form>
-            </section> -->
+        <article class="recipes">
             <div class="list-group">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 animate-inventory" ng-repeat="recipe in ctrl.recipes">
+                    <div class=""></div>
+                    <div class="col-md-4" ng-repeat="recipe in ctrl.recipes">
                         <a ng-click="ctrl.goShowPage(recipe)" class="list-group-item">
                             <h3>{{ recipe.title }}</h3>
                             <article class="row">
-                                <div class="col-xs-5">
-                                    <img class="middle" width=96px src="/images/{{recipe.photo}}" />
+                                <div>
+                                    <img class="recipes" align="middle" width=350px src="/images/{{recipe.photo}}" />
                                 </div>
-                                <div class="col-xs-7">
+                                <div>
                                     <dl class="dl-horizontal">
                                         <dt>Description:</dt>
                                         <dd>{{ recipe.description }}</dd>
@@ -35,12 +26,9 @@
                             </article>
                         </a>
                     </div>
-<!--                     <div class="animate-inventory text-center" ng-hide="filteredItems.length">
-                        <h3>No items match your search.</h3>
-                    </div> -->
                 </div>
             </div>
-        </article>
-
+    </div>
+    </article>
     </div>
 </section>

@@ -29,7 +29,7 @@ var recipeRouter = require('./routes/recipe');
 // CONNECT TO DATABASE IF ON HEROKU
 //=================================================
 var app = express();
-mongoose.connect('mongodb://localhost/recipes');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/recipes');
 
 //=================================================
 // VIEW ENGINE SETUP

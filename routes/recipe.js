@@ -31,7 +31,13 @@ router.post('/new', function(req, res, next) {
   .then(function(user) {
     if(user) {
       var newRecipe = {
-        title: ''
+        title: '',
+        type: '',
+        description: '',
+        instructions: '',
+        cooktime: 0,
+        preptime: 0,
+        photo: ''
       };
       Recipe.create(newRecipe, function(err, recipe) {
         user.recipes.push(recipe);
@@ -46,5 +52,6 @@ router.post('/new', function(req, res, next) {
   });
 
 });
+
 
 module.exports = router;

@@ -164,7 +164,7 @@ angular.module('recipesApp')
                 .then(function(results) {
                     console.log('successfully created new recipe');
                     vm.user = results.data.user;
-                    $state.go('recipe', { recipeId: results.data.user-recipes._id })
+                    $state.go('recipes', { recipeId: results.data.user-recipes._id })
                 });
         }
 
