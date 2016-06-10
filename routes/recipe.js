@@ -54,19 +54,20 @@ router.get('/:id', function(req, res, next) {
 
 // });
 
-// NEW
-router.get('/new', function(req, res, next) {
-  var recipe = {
-    title: '',
-    type: '',
-    description: '',
-    instructions: '',
-    cooktime: 0,
-    preptime: 0,
-    photo: ''
-  }
-  res.render('recipes-new', {loggedIn: currentUser, message: req.flash(), recipe: recipe });
-})
+// // NEW
+// router.get('/new', function(req, res, next) {
+//   var recipe = {
+//     title: '',
+//     type: '',
+//     description: '',
+//     instructions: '',
+//     cooktime: 0,
+//     preptime: 0,
+//     photo: ''
+//   }
+// console.log("line 68" + recipe);
+//   res.render('recipes-new', {loggedIn: currentUser, message: req.flash(), recipe: recipe });
+// });
 
 // POST
 

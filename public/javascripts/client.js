@@ -44,15 +44,18 @@ angular.module('recipesApp')
                 controller: "userRecipesCtrl",
                 controllerAs: "ctrl"
             })
-            .state('recipes-new', {
+            .state('recipesnew', {
                 url: "/recipes/new",
                 templateUrl: "views/recipes-new.html",
-                controller: "mainCtrl",
+                controller: "newRecipeCtrl",
                 controllerAs: "ctrl"
             });
     });
 
+// ==========================================================================
 // RECIPES CONTROLLER
+// ==========================================================================
+
 angular.module('recipesApp')
     .controller('recipesCtrl', function($http, $state) {
         console.log('recipesCtrl is alive!');
@@ -74,7 +77,10 @@ angular.module('recipesApp')
         ctrl.getRecipes();
     });
 
+// ==========================================================================
 // RECIPES SHOW CONTROLLER
+// ==========================================================================
+
 angular.module('recipesApp')
     .controller('recipesShowCtrl', function($http, $stateParams) {
         console.log('recipesShowCtrl is alive!');
@@ -87,10 +93,13 @@ angular.module('recipesApp')
         });
     });
 
-// MAIN CONTROLLER
+// ==========================================================================
+// NEW RECIPE CONTROLLER
+// ==========================================================================
+
 angular.module('recipesApp')
-    .controller('mainCtrl', function($stateParams, $state, $http) {
-        console.log('mainCtrl is alive!');
+    .controller('newRecipeCtrl', function($stateParams, $state, $http) {
+        console.log('newRecipeCtrl is alive!');
         var vm = this;
         vm.recipe = {};
 
@@ -106,6 +115,32 @@ angular.module('recipesApp')
             photo: ""
         };
 
+        vm.addRecipe = function() {
+            console.log('adding newRecipe:', vm.newRecipe);
+            $http
+                .post('/api/recipes/new', vm.newRecipe)
+                .then(function(response) {
+                    console.log('new recipe added.');
+                    console.log(response);
+                    // vm.getRecipes();
+                }, function(err) {
+                    alert('something went wrong!');
+                });
+            vm.newRecipe = {};
+            console.log("add recipe is working");
+            $state.go('recipes');
+        };
+    });
+
+
+// ==========================================================================
+// MAIN CONTROLLER
+// ==========================================================================
+angular.module('recipesApp')
+    .controller('mainCtrl', function($stateParams, $state, $http) {
+        console.log('mainCtrl is alive!');
+        var vm = this;
+        vm.recipe = {};
 
         vm.user;
         vm.email;
@@ -173,25 +208,6 @@ angular.module('recipesApp')
             vm.password = undefined;
             $state.go('home');
         }
-
-
-
-        vm.addRecipe = function() {
-            console.log('adding newRecipe:', vm.newRecipe);
-            $http
-                .post('/api/recipes/new', vm.newRecipe)
-                .then(function(response) {
-                    console.log('new recipe added.');
-                    console.log(response);
-                    // vm.getRecipes();
-                }, function(err) {
-                    alert('something went wrong!');
-                });
-            vm.newRecipe = {};
-            console.log("add recipe is working");
-            $state.go('recipes');
-        };
-
 
         vm.isRecipePage = function() {
             return $state.current.name === 'recipe';
