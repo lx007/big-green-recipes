@@ -6,21 +6,17 @@
                 <img class="recipeshow" onclick="window.history.back()" src="/images/{{ctrl.recipe.photo}}" />
             </div>
 
-
-
      <h2 class="text-center">{{ ctrl.recipe.title }}</h2>
         <dl class="dl-horizontal">
 
-            <dt>Title:</dt>
-            <dd>{{ ctrl.recipe.title }}</dd>
             <dt>Type:</dt>
             <dd>{{ ctrl.recipe.type }}</dd>
-            <dt>Instructions:</dt>
-            <dd>{{ ctrl.recipe.instructions }}</dd>
             <dt>Cook Time:</dt>
             <dd>{{ ctrl.recipe.cooktime }}</dd>
             <dt>Prep Time:</dt>
             <dd>{{ ctrl.recipe.preptime }}</dd>
+            <dt>Instructions:</dt>
+            <dd>{{ ctrl.recipe.instructions }}</dd>
         </dl>
 <!--         <div class="back">
             <button type="button pull-right" class="btn btn-primary" onclick="window.history.back()">Back</button>
