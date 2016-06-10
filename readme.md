@@ -12,13 +12,13 @@
  [General Assembly] rubric
 
 * Build a full-stack application by making your own backend and your own front-end
-*Have an API of your design
-*Have an interactive front-end, preferably using a modern front-end framework
-*Be a complete product, which most likely means multiple relationships and CRUD functionality for at least a couple models
-*Use a database, whether that's one we've covered in class or one you want to learn
-*Implement thoughtful user stories that are significant enough to help you know which features to build and which to scrap
-*Have a visually impressive design to kick your portfolio up a notch and have something to wow future clients & employers
-*Be deployed online so it's publicly accessible
+* Have an API of your design
+* Have an interactive front-end, preferably using a modern front-end framework
+* Be a complete product, which most likely means multiple relationships and CRUD functionality for at least a couple models
+* Use a database, whether that's one we've covered in class or one you want to learn
+* Implement thoughtful user stories that are significant enough to help you know which features to build and which to scrap
+* Have a visually impressive design to kick your portfolio up a notch and have something to wow future clients & employers
+* Be deployed online so it's publicly accessible
 
 
 
