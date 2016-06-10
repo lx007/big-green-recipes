@@ -11,13 +11,14 @@
 ### Minimum Requirements
  [General Assembly] rubric
 
-* Have at least 2 models (more if they make sense) – one representing someone using your application, and one that represents the main functional idea for your app
-* Include sign up/log in functionality, with encrypted passwords & an authorization flow
-* Have complete RESTful routes for at least one of your resources with GET, POST, PUT, PATCH, and DELETE
-* Utilize an ORM to create a database table structure and interact with your relationally-stored data
-* Include wireframes that you designed during the planning process
-* Have semantically clean HTML and CSS
-* Be deployed online and accessible to the public
+* Build a full-stack application by making your own backend and your own front-end
+*Have an API of your design
+*Have an interactive front-end, preferably using a modern front-end framework
+*Be a complete product, which most likely means multiple relationships and CRUD functionality for at least a couple models
+*Use a database, whether that's one we've covered in class or one you want to learn
+*Implement thoughtful user stories that are significant enough to help you know which features to build and which to scrap
+*Have a visually impressive design to kick your portfolio up a notch and have something to wow future clients & employers
+*Be deployed online so it's publicly accessible
 
 
 
@@ -53,7 +54,6 @@ ERD: ![alt-text][Wireframe5] -->
   - Express
   - Node.js
   - Mongoose
-  -
 
 
 
