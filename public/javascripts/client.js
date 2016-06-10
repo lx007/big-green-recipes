@@ -45,7 +45,7 @@ angular.module('recipesApp')
                 controllerAs: "ctrl"
             })
             .state('recipes-new', {
-                url: "/views/recipes-new.html",
+                url: "/recipes/new",
                 templateUrl: "views/recipes-new.html",
                 controller: "mainCtrl",
                 controllerAs: "ctrl"
@@ -64,7 +64,6 @@ angular.module('recipesApp')
         ctrl.getRecipes = function() {
             $http.get('/api/recipes').then(function(response) {
                 ctrl.recipes = response.data;
-                console.log('ctrl.recipes:', ctrl.recipes);
             });
         };
 
@@ -91,10 +90,20 @@ angular.module('recipesApp')
 // MAIN CONTROLLER
 angular.module('recipesApp')
     .controller('mainCtrl', function($stateParams, $state, $http) {
+        console.log('mainCtrl is alive!');
         var vm = this;
+        vm.recipe = {};
 
-        ctrl.newRecipe = {
-            title: ''
+
+
+        vm.newRecipe = {
+            title: "",
+            type: "",
+            description: "",
+            instructions: "",
+            preptime: 0,
+            cooktime: 0,
+            photo: ""
         };
 
 
@@ -102,10 +111,10 @@ angular.module('recipesApp')
         vm.email;
         vm.password;
 
-        vm.data = {
-            email: '',
-            password: ''
-        };
+        // vm.data = {
+        //     email: '',
+        //     password: ''
+        // };
 
         vm.checkCurrentUser = function() {
             $http.get('/currentUser')
@@ -167,24 +176,24 @@ angular.module('recipesApp')
 
 
 
-        ctrl.addRecipe = function() {
-            // console.log('adding newNote:', ctrl.newNote);
+        vm.addRecipe = function() {
+            console.log('adding newRecipe:', vm.newRecipe);
             $http
-                .post('/api/recipes/new', ctrl.newRecipe)
+                .post('/api/recipes/new', vm.newRecipe)
                 .then(function(response) {
-                    // console.log('new note added.');
-                    // console.log(response);
-                    ctrl.getRecipes();
+                    console.log('new recipe added.');
+                    console.log(response);
+                    vm.getRecipes();
                 }, function(err) {
-                    // alert('something went wrong!');
+                    alert('something went wrong!');
                 });
-            ctrl.newRecipe = {};
-            console.log("add note is working");
+            vm.newRecipe = {};
+            console.log("add recipe is working");
         };
 
         // vm.createNewRecipe = function() {
         //     console.log('submitted');
-        //     $http.post('/recipes/new', { user: vm.user, email: vm.email, password: vm.password })
+        //     $http.post('/recipes-new', { user: vm.user, email: vm.email, password: vm.password })
         //         .then(function(results) {
         //             console.log('successfully created new recipe');
         //             vm.user = results.data.user;
