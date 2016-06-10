@@ -1,0 +1,9 @@
+{
+            'title': 'Philly Cheeseburger',
+            'type': 'Beef',
+            'description': 'Burger',
+            'instructions': 'Cook it',
+            'cooktime': 10,
+            'preptime': 20,
+            'photo': 'philly-cheeseburger.jpg'
+        }
