@@ -36,8 +36,9 @@ Wireframe Sign Up: ![alt-text][Wireframe4]
 ERD: ![alt-text][Wireframe5] -->
 
 ###Models
-  -User Model
-  -Recipe Model
+
+  - User Model
+  - Recipe Model
 
 ###Features
   - Log in/Log out
