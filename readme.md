@@ -102,7 +102,7 @@ MIT
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
-   [Heroku]: <https://big-green-recipes.herokuapp.com//>
+   [Heroku]: <https://big-green-recipes.herokuapp.com>
    [General Assembly]: <https://github.com/ATL-WDI-Exercises/project-four-requirements>
    [Trello]: <https://trello.com/b/ceBOmnGB>
    [Wireframe]: https://github.com/wtabor/angler/blob/master/app/assets/images/Home.png "Wireframe"
