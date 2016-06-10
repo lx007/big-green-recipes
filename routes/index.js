@@ -32,20 +32,20 @@ router.get('/login', function(req, res, next) {
 });
 
 
-// POST /login
-router.route('/login')
-.post(passport.authenticate('local-login'), function(req, res) {
-    console.log(req.body + 'line 38');
-    res.json(req.body);
-});
-
-// // NEW POST ROUTE
-// // GET /login
+// // POST /login
 // router.route('/login')
-//  .post(function(req, res, next) {
-//     res.json({test: 'Worked'});
-//     console.log(req.body)
+// .post(passport.authenticate('local-login'), function(req, res) {
+//     console.log(req.body + 'line 38');
+//     res.json(req.body);
 // });
+
+// NEW POST ROUTE
+// GET /login
+router.route('/login')
+ .post(function(req, res, next) {
+    res.json({test: 'Worked'});
+    console.log(req.body)
+});
 
 
 // GET /logout

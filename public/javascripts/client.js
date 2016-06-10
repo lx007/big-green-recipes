@@ -183,23 +183,15 @@ angular.module('recipesApp')
                 .then(function(response) {
                     console.log('new recipe added.');
                     console.log(response);
-                    vm.getRecipes();
+                    // vm.getRecipes();
                 }, function(err) {
                     alert('something went wrong!');
                 });
             vm.newRecipe = {};
             console.log("add recipe is working");
+            $state.go('recipes');
         };
 
-        // vm.createNewRecipe = function() {
-        //     console.log('submitted');
-        //     $http.post('/recipes-new', { user: vm.user, email: vm.email, password: vm.password })
-        //         .then(function(results) {
-        //             console.log('successfully created new recipe');
-        //             vm.user = results.data.user;
-        //             $state.go('recipes', { recipeId: results.data.user-recipes._id })
-        //         });
-        // }
 
         vm.isRecipePage = function() {
             return $state.current.name === 'recipe';
